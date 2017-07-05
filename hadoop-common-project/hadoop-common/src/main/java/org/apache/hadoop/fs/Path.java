@@ -191,8 +191,7 @@ public class Path implements Comparable {
     // parse uri scheme, if any
     int colon = pathString.indexOf(':');
     int slash = pathString.indexOf('/');
-    if ((colon != -1) &&
-        ((slash == -1) || (colon < slash))) {     // has a scheme
+    if (colon != -1 && slash != -1 && colon == slash - 1) {     // has a scheme
       scheme = pathString.substring(0, colon);
       start = colon+1;
     }
